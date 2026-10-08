@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(gh secret *)",
+      "Bash(gh variable *)",
+      "Bash(gh pr merge*)",
+      "Bash(gh workflow run*)",
+      "Bash(git push origin main*)",
+      "Bash(git push * main)",
+      "Bash(git push * HEAD:main*)",
+      "Bash(make login*)",
+      "Bash(./google-scripts-mcp login*)",
+      "Bash(google-scripts-mcp login*)",
+      "Read(~/.config/google-scripts-mcp/token.json)",
+      "Read(~/.config/google-scripts-mcp/client_secret.json)",
+      "Read(./client_secret*.json)",
+      "Read(./token*.json)"
+    ]
+  }
+}
