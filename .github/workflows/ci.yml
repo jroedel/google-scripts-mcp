@@ -1,0 +1,35 @@
+# Every pull request, and main. Copied from dropin-forms, less the shell tests
+# and the release build, which this repository does not have.
+#
+# The steps are separate rather than one `make test`, so that a red run names
+# which of them failed on its own line instead of making somebody read the log
+# to find out.
+#
+# Actions are pinned to a commit rather than a tag. A tag is a moving pointer
+# that its owner can repoint, and a third-party action runs with access to this
+# workflow's token -- so "v7" means "whatever v7 happens to be that morning".
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: lint
+        run: make lint
+      - name: unit tests, with the race detector
+        run: make test-unit
+      - name: vulnerability scan
+        run: make vuln-check
