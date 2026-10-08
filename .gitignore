@@ -1,0 +1,31 @@
+# The binary, which lands in the repository root because that is the path the
+# MCP registration in README.md points at.
+/google-scripts-mcp
+*.test
+*.out
+*.prof
+coverage.*
+
+# Credentials. They live in ~/.config/google-scripts-mcp, never here -- these
+# lines are for the client JSON somebody downloads into the working directory
+# on the way to putting it where it belongs.
+client_secret*.json
+token*.json
+*.env
+.env*
+
+# Pulled script sources. They belong in their own repositories, not in this
+# one, which may be public: a script's code and its manifest say a good deal
+# about the account it runs in.
+.gas-pull.json
+.clasp.json
+*.gs
+
+# Local tooling and editor state
+/tools/
+.idea/
+.vscode/
+*.swp
+.DS_Store
+.claude/worktrees/
+.claude/settings.local.json
