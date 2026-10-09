@@ -3,7 +3,7 @@ module github.com/jroedel/google-scripts-mcp
 // One directive and no separate toolchain line, with the patch version
 // pinned: the rule in .claude/skills/writing-go, and the reasons are there.
 // Raise it when a Go patch release fixes an advisory govulncheck reports.
-go 1.26.8
+go 1.26.9
 
 require (
 	github.com/modelcontextprotocol/go-sdk v1.8.0
